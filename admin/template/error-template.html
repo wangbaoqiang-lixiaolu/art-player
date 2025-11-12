@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{MIZHI.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="./css/home/common.css" rel="stylesheet">
+    <link href="./css/home/home.css" rel="stylesheet">
+    <style>
+        body, html {
+            font: 18px "Microsoft Jhenghei", Arial, Lucida Grande, Tahoma, sans-serif;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-panel-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .video-panel-video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-panel-bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #loading {
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px #d5ebe1;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .actions a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        .copyright {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+    <script src="./js/home/runtime.js"></script>
+    <script src="./js/home/vendor.js"></script>
+    <script src="./js/home/home.js"></script>
+</head>
+<body>
+    <div class="video-panel">
+        <div style="{{err_image}}" class="video-panel-bg-image"></div>
+        <div class="video-panel-video-wrapper">
+            {{err_video}}
+        </div>
+    </div>
+    <div id="loading">
+        <h1>{{MIZHI.title}}<br><br>{{MIZHI.keywords}}</h1>
+        <p>解析失败 URL为空，请稍后再试~</p>
+        <p>本播放器可针对json解析进行播放，请在后台添加json解析接口</p>
+        <p>所有视频格式均可直接播放，如mp4,m3u8,flv，等等。。。</p>
+        <p>2021-2022 All Rights Reserved 觅知json解析专用弹幕播放器<br>
+           所有资源均来源第三方资源，并不提供影片资源存储，也不参与录制、上传相关视频，视频版权归属其合法持有人所有<br>
+           本站不对使用者的行为负担任何法律责任。如果有因为本站而导致您的权益受到损害，请与我们联系，我们将理性对待，协助你解决相关问题。<a href="https://www.98dou.cn/" target="_Blank">觅知博客</a></p>
+        <div class="actions">
+            <a href="javascript:location.reload()" class="current">刷新重试</a>
+            <a href="{{MIZHI.errzdylink}}" target="_blank">{{MIZHI.errzdytext}}</a>
+            <a href="{{up.title_url}}" target="_blank">{{up.title}}</a>
+            {{err_vol}}
+        </div>
+        <div class="footer">尊重影视版权，保护创作者权益，从你我做起</div>
+        <div class="copyright">© {{MIZHI.version}} {{MIZHI.versionnum}}</div>
+    </div>
+</body>
+</html>
